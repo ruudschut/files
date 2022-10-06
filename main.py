@@ -9,11 +9,11 @@ import zipfile
 
 def clean_cache():
     wd = os.getcwd()
-    if os.path.exists(os.path.join(wd, "files\\cache")):
-        shutil.rmtree(os.path.join(wd, "files\\cache"))
-        os.mkdir(os.path.join(wd, "files\\cache"))
+    if os.path.exists(os.path.join(wd, "files", "cache")):
+        shutil.rmtree(os.path.join(wd, "files", "cache"))
+        os.mkdir(os.path.join(wd, "files", "cache"))
     else:
-        os.mkdir(os.path.join(wd, "files\\cache"))
+        os.mkdir(os.path.join(wd, "files", "cache"))
 
       
 clean_cache()
@@ -22,7 +22,7 @@ clean_cache()
 
 def cache_zip(file, dir):
     wd = os.getcwd()
-    shutil.unpack_archive((os.path.join(wd, "files\\"+file)), (os.path.join(wd, "files\\"+dir)))
+    shutil.unpack_archive((os.path.join(wd, "files", file)), (os.path.join(wd, "files", dir)))
 
 cache_zip("data.zip", "cache")
 
