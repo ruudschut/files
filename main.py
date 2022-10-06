@@ -9,11 +9,11 @@ import zipfile
 
 def clean_cache():
     wd = os.getcwd()
-    if os.path.exists(wd+"\\files\\cache"):
-        shutil.rmtree(wd+"\\files\\cache")
-        os.mkdir(wd+"\\files\\cache")
+    if os.path.exists(os.path.join(wd, "files\\cache")):
+        shutil.rmtree(os.path.join(wd, "files\\cache"))
+        os.mkdir(os.path.join(wd, "files\\cache"))
     else:
-        os.mkdir(wd+"\\files\\cache")
+        os.mkdir(os.path.join(wd, "files\\cache"))
 
       
 clean_cache()
@@ -21,9 +21,10 @@ clean_cache()
 # opdracht 2, pak het zip bestand uit in de cache directory
 
 def cache_zip(file, dir):
-    shutil.unpack_archive(file, dir)
+    wd = os.getcwd()
+    shutil.unpack_archive((os.path.join(wd, "files\\"+file)), (os.path.join(wd, "files\\"+dir)))
 
-cache_zip("/Users/ruude/WINC/files/data.zip", "/Users/ruude/WINC/files/cache")
+cache_zip("data.zip", "cache")
 
 # opdracht 3, geef een lijst met alle files in de directory
 
