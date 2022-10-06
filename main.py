@@ -28,7 +28,7 @@ cache_zip("data.zip", "cache")
 
 # opdracht 3, geef een lijst met alle files in de directory
 
-directory = './files/cache'
+directory = os.path.join(os.getcwd(), "files", "cache")
 
 def cached_files():
     my_path = os.path.abspath(directory)
